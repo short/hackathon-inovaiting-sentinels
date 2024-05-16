@@ -1,0 +1,65 @@
+openapi: 3.0.0
+
+info:
+  title: Get VirusTotal URL Information
+  description: Get information about a URL from VirusTotal
+  version: "v1"
+
+servers:
+  - url: https://www.virustotal.com/api
+
+paths:
+  /v3/urls:
+    post:
+      operationId: getVirusTotalURL
+      summary: Get VirusTotal URL Information for a particular URL.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  description: The URL to lookup
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getVTURLResponse"
+
+components:
+  schemas:
+    getVTURLResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+            type:
+              type: string
+            attributes:
+              type: object
+              properties:
+                url:
+                  type: string
+                scan_date:
+                  type: string
+                positives:
+                  type: integer
+                total:
+                  type: integer
+                permalink:
+                  type: string
+        meta:
+          type: object
+          properties:
+            status_code:
+              type: integer
+            message:
+              type: string
