@@ -15,7 +15,7 @@ servers:
 paths:
     /v3/urls/{id}:
         get:
-            operationId: getVirusTotalIP
+            operationId: getVirusTotalURLbyID
             summary: Get Virus Total url Information for a particular id.
             parameters:
                 - in: path
