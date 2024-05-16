@@ -1,8 +1,8 @@
 openapi: 3.0.0
 
 info:
-    title: Get Virus Total IP Information
-    description: Get Information about an IP from Virus Total
+    title: Get Virus Total report Information by id
+    description: Get Information about an url report from Virus Total by id
     #Examples
     #Can you summarize the Virus Total information for the IP 185.220.101.140?
     #Can you output a table I can export of the reputation information from all the engines from Virus Total for the IP 185.220.101.140?
@@ -16,7 +16,7 @@ paths:
     /v3/urls/{id}:
         get:
             operationId: getVirusTotalIP
-            summary: Get Virus Total IP Information for a particular IP address.
+            summary: Get Virus Total url Information for a particular id.
             parameters:
                 - in: path
                   name: id
